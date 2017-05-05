@@ -14,9 +14,9 @@
     <link rel="canonical" href="{{ page.url(true, true) }}" />
 
     {% block stylesheets %}
-        {% do assets.addCss('theme://css/foundation.mins.css', 98) %}
+        {% do assets.addCss('theme://css/foundation.min.css', 98) %}
         {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 99) %}
-        {% do assets.addCss('theme://css/custom.css', 100) %}
+        {% do assets.addCss('theme://css/custom.css', 20) %}
     {% endblock %}
     {{ assets.css() }}
 
@@ -34,7 +34,7 @@
 
 {% block header %}
     <div class="header">
-        <div class="wrapper padding">
+        <div class="row padding">
             <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
                 <i class="fa fa-rebel"></i>
                 {{ config.site.title }}
@@ -50,7 +50,7 @@
 
 {% block body %}
     <section id="body">
-        <div class="wrapper padding">
+        <div class="row padding">
         {% block content %}{% endblock %}
         </div>
     </section>
@@ -58,7 +58,7 @@
 
 {% block footer %}
     <div class="footer text-center">
-        <div class="wrapper padding">
+        <div class="row padding">
             <p><a href="https://github.com/SeattleDSA/grav-theme-dsa">grav-theme-dsa</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="https://seattledsa.org/">Seattle DSA</a>.</p>
         </div>
     </div>

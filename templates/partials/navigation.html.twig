@@ -4,7 +4,6 @@
         {% if p.children.visible.count > 0 %}
             <li class="has-children {{ current_page }}">
                 <a href="{{ p.url }}">
-                    ![DSA Logo](theme://images/logo.png?classes=dsa-logomark)
                     {{ p.menu }}
                 </a>
                 <ul>
@@ -14,8 +13,7 @@
         {% else %}
             <li class="{{ current_page }}">
                 <a href="{{ p.url }}">
-                    ![DSA Logo](theme://images/logo.png?classes=dsa-logomark)
-                    {{ p.menu }}
+                	{{ p.menu }}
                 </a>
             </li>
         {% endif %}
@@ -30,7 +28,6 @@
             {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}
             <li class="{{ current_page }}">
                 <a href="{{ page.url }}">
-                    ![DSA Logo](theme://images/logo.png?classes=dsa-logomark)
                     {{ page.menu }}
                 </a>
             </li>

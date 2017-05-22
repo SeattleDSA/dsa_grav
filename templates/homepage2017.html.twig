@@ -4,6 +4,10 @@
     {{ page.content }}
     <div class="row">
     	<div class="medium-6 columns"><h2>Form Placeholder</h2></div>
-    	<div class="medium-6 columns">{{ facebook_events() }}</div>
+    	<div class="medium-6 columns">
+    		{% if config.plugins.facebook.enabled %}
+    			{{ facebook_events() }}
+    		{% endif %}
+    	</div>
     </div>
 {% endblock %}

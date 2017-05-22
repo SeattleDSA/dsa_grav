@@ -2,22 +2,5 @@
 
 {% block content %}
     {{ page.content }}
-    <script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '1444084742557195',
-	      xfbml      : true,
-	      version    : 'v2.9'
-	    });
-	    FB.AppEvents.logPageView();
-	  };
-
-	  (function(d, s, id){
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "//connect.facebook.net/en_US/sdk.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-	</script>
+    <div class="fb-page" data-href="https://www.facebook.com/seattledsa" data-tabs="events" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/seattledsa" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/seattledsa">Seattle Democratic Socialists of America</a></blockquote></div>
 {% endblock %}

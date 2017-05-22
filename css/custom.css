@@ -1,4 +1,10 @@
 /* Core Stuff */
+@font-face {font-family: 'ManifoldDSA-ExtraBold';src: url('webfonts/ManifoldDSA-ExtraBold.eot');src: url('webfonts/ManifoldDSA-ExtraBold.eot?#iefix') format('embedded-opentype'),url('webfonts/ManifoldDSA-ExtraBold.woff2') format('woff2'),url('webfonts/ManifoldDSA-ExtraBold.woff') format('woff'),url('webfonts/ManifoldDSA-ExtraBold.ttf') format('truetype');}
+@font-face {font-family: 'ManifoldDSA-Light';src: url('webfonts/ManifoldDSA-Light.eot');src: url('webfonts/ManifoldDSA-Light.eot?#iefix') format('embedded-opentype'),url('webfonts/ManifoldDSA-Light.woff2') format('woff2'),url('webfonts/ManifoldDSA-Light.woff') format('woff'),url('webfonts/ManifoldDSA-Light.ttf') format('truetype');}
+@font-face {font-family: 'ManifoldDSA-Regular';src: url('webfonts/ManifoldDSA-Regular.eot');src: url('webfonts/ManifoldDSA-Regular.eot?#iefix') format('embedded-opentype'),url('webfonts/ManifoldDSA-Regular.woff2') format('woff2'),url('webfonts/ManifoldDSA-Regular.woff') format('woff'),url('webfonts/ManifoldDSA-Regular.ttf') format('truetype');}
+header, body, p {font-family: ManifoldDSA-Regular, Helvetica, Tahoma, Sans-Serif;}
+h1, h2, h3, h4, h5 {font-family: ManifoldDSA-Light, Helvetica, Tahoma, Sans-Serif;}
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -76,7 +82,7 @@ blockquote {
 }
 
 .header {
-    background-color: #1F8DD6;
+    background-color: #ec1f27;
     color: #eee;
 }
 
@@ -86,7 +92,6 @@ blockquote {
 
 .header .logo {
     font-size: 1.7rem;
-    text-transform: uppercase;
 }
 
 .footer {
@@ -116,18 +121,19 @@ blockquote {
 }
 
 .main-nav > ul > li > a {
-    border-radius: 2px;
+    border-radius: 2rem;
 }
 
 /*Active dropdown nav item */
 .main-nav ul li:hover > a {
-    background-color: #175E91;
+    background-color: #fff;
+    color: #231F20;
 }
 
 /* Selected Dropdown nav item */
 .main-nav ul li.selected > a {
-    background-color: #fff;
-    color: #175E91;
+    background-color: #231F20;
+    color: #fff;
 }
 
 /* Dropdown CSS */
@@ -173,3 +179,5 @@ blockquote {
 .main-nav .has-children .has-children > a:after {
     content: '\f105';
 }
+
+

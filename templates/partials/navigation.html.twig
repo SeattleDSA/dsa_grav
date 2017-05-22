@@ -20,7 +20,8 @@
     {% endfor %}
 {% endmacro %}
 
-<ul>
+<ul class="dropdown vertical medium-horizontal menu" data-dropdown-menu>
+
     {% if theme_config.dropdown.enabled %}
         {{ _self.loop(pages) }}
     {% else %}

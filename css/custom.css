@@ -35,6 +35,14 @@ a:hover {
     color: #175E91;
 }
 
+.body a, .body .button {
+	color: #ec1f27;
+}
+
+.button.hollow {
+	border: 1px solid #ec1f27;
+}
+
 pre {
     background: #F0F0F0;
     margin: 1rem 0;
@@ -50,10 +58,6 @@ blockquote {
 /* Utility Classes */
 .wrapper {
     margin: 0 3rem;
-}
-
-.padding {
-    padding: 3rem 1rem;
 }
 
 .left {
@@ -77,9 +81,6 @@ blockquote {
 }
 
 /* Content Styling */
-.header .padding {
-    padding: 1rem 0;
-}
 
 .header {
     background-color: #ec1f27;
@@ -94,90 +95,30 @@ blockquote {
     font-size: 1.7rem;
 }
 
+img.logo-mark {
+    height: 3rem;
+    width: auto;
+}
+
 .footer {
     background-color: #eee;
 }
 
-/* Menu Settings */
-.main-nav ul {
-    text-align: center;
-    letter-spacing: -1em;
-    margin: 0;
-    padding: 0;
+.mobile-nav {
+	background-color: #ec1f27;
+	color: #fff;
 }
 
-.main-nav ul li {
-    display: inline-block;
-    letter-spacing: normal;
+.top-bar ul {
+	background: transparent;
 }
 
-.main-nav ul li a {
-    position: relative;
-    display: block;
-    line-height: 45px;
-    color: #fff;
-    padding: 0 20px;
-    white-space: nowrap;
+.menu>li>a:hover {
+	background-color: #fff;
+	color: #ec1f27;
 }
 
-.main-nav > ul > li > a {
-    border-radius: 2rem;
+.menu>li.selected>a{
+	background-color: #000;
+	color: #fff;
 }
-
-/*Active dropdown nav item */
-.main-nav ul li:hover > a {
-    background-color: #fff;
-    color: #231F20;
-}
-
-/* Selected Dropdown nav item */
-.main-nav ul li.selected > a {
-    background-color: #231F20;
-    color: #fff;
-}
-
-/* Dropdown CSS */
-.main-nav ul li {position: relative;}
-
-.main-nav ul li ul {
-    position: absolute;
-    background-color: #1F8DD6;
-    min-width: 100%;
-    text-align: left;
-    z-index: 999;
-
-    display: none;
-}
-.main-nav ul li ul li {
-    display: block;
-}
-
-/* Dropdown CSS */
-.main-nav ul li ul ul {
-    left: 100%;
-    top: 0;
-}
-
-/* Active on Hover */
-.main-nav li:hover > ul {
-    display: block;
-}
-
-/* Child Indicator */
-.main-nav .has-children > a {
-    padding-right: 30px;
-}
-.main-nav .has-children > a:after {
-    font-family: FontAwesome;
-    content: '\f107';
-    position: absolute;
-    display: inline-block;
-    right: 8px;
-    top: 0;
-}
-
-.main-nav .has-children .has-children > a:after {
-    content: '\f105';
-}
-
-

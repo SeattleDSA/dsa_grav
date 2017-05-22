@@ -40,14 +40,24 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 {% block header %}
-    <div class="header">
-        <div class="row padding">
-            <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
-                <i class="fa fa-rebel"></i>
-                {{ config.site.title }}
-            </a>
-            {% block header_navigation %}
-            <nav class="main-nav">
+    <div class="title-bar mobile-nav" data-responsive-toggle="dsa-menu" data-hide-for="medium">
+		      <button class="menu-icon" type="button" data-toggle="dsa-menu"></button>
+		      <div class="title-bar-title">
+		      	<img src="{{ url('theme://images/dsa-rose-mark.svg') }}" class="logo-mark" />
+		      	{{ config.site.title }}
+		      </div>
+	</div>
+	<div class="header top-bar" id="dsa-menu">
+        <div class="padding">
+            <div class="top-bar-left show-for-medium">
+            	<a class="logo top-bar-left" href="{{ base_url == '' ? '/' : base_url }}">
+                	<img src="{{ url('theme://images/dsa-rose-mark.svg') }}" class="logo-mark" />
+                	<span class="site-name">{{ config.site.title }}</span>
+            	</a>
+           		{% block header_navigation %}
+            </div>
+            
+            <nav class="main-nav top-bar-right">
                 {% include 'partials/navigation.html.twig' %}
             </nav>
             {% endblock %}
@@ -56,7 +66,7 @@
 {% endblock %}
 
 {% block body %}
-    <section id="body">
+    <section id="body" class="body">
         <div class="row padding">
         {% block content %}{% endblock %}
         </div>

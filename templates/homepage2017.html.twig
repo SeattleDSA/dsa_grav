@@ -2,5 +2,8 @@
 
 {% block content %}
     {{ page.content }}
-    <div class="fb-page" data-href="https://www.facebook.com/seattledsa" data-tabs="events" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/seattledsa" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/seattledsa">Seattle Democratic Socialists of America</a></blockquote></div>
+    <div class="row">
+    	<div class="medium-6 columns"><h2>Form Placeholder</h2></div>
+    	<div class="medium-6 columns">{{ facebook_events() }}</div>
+    </div>
 {% endblock %}

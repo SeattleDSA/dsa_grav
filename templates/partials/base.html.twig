@@ -41,11 +41,11 @@
 	}(document, 'script', 'facebook-jssdk'));</script>
 {% block header %}
     <div class="title-bar mobile-nav" data-responsive-toggle="dsa-menu" data-hide-for="medium">
-		      <button class="menu-icon" type="button" data-toggle="dsa-menu"></button>
-		      <div class="title-bar-title">
-		      	<img src="{{ url('theme://images/dsa-rose-mark.svg') }}" class="logo-mark" />
-		      	{{ config.site.title }}
-		      </div>
+		<div class="top-bar-left title-bar-title">
+		  <img src="{{ url('theme://images/dsa-rose-mark.svg') }}" class="logo-mark" />
+		  {{ config.site.title }}
+		</div>
+        <button class="menu-icon top-bar-right" type="button" data-toggle="dsa-menu"></button>
 	</div>
 	<div class="header top-bar" id="dsa-menu">
         <div class="padding">
@@ -68,7 +68,9 @@
 {% block body %}
     <section id="body" class="body">
         <div class="row padding">
-        {% block content %}{% endblock %}
+            <div class="small-12 columns">
+                {% block content %}{% endblock %}
+            </div>
         </div>
     </section>
 {% endblock %}

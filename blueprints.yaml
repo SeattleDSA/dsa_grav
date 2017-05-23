@@ -1,4 +1,4 @@
-name: Dsa
+name: DSA
 version: 0.1.0
 description: Standard DSA theme
 icon: rebel
@@ -25,3 +25,43 @@ form:
           0: PLUGIN_ADMIN.DISABLED
         validate:
           type: bool
+ 
+    dsa_social_settings.dsa_facebook_url:
+      type: text
+      size: large
+      label: Facebook Account
+      help: Paste URL for your Facebook Page
+      placeholder: "https://facebook.com/SeattleDSA"
+      default: ''
+      validate:
+        type: string
+
+    dsa_social_settings.dsa_twitter_url:
+      type: text
+      size: large
+      label: Twitter Account
+      help: Paste URL for your Twitter Profile
+      placeholder: "https://twitter.com/SeattleDSA"
+      default: ''
+      validate:
+        type: string
+
+    dsa_social_settings.dsa_youtube_url:
+      type: text
+      size: large
+      label: YouTube Account
+      help: Paste URL for your Youtube Channel
+      placeholder: "https://youtube.com/SeattleDSA"
+      default: ''
+      validate:
+        type: string
+
+    dsa_social_settings.dsa_soundcloud_url:
+      type: text
+      size: large
+      label: SoundCloud Account
+      help: Paste URL for your SoundCloud Page
+      placeholder: "https://soundcloud.com/SeattleDSA"
+      default: ''
+      validate:
+        type: string

@@ -21,10 +21,10 @@
 					{% for child in collection %}
 				        {% include 'partials/blog_item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
 				    {% endfor %}
+				    This appears after block
+				    {{ dump(page.collection[page.path]) }}
+				    <a href="{{dsa_social_settings.dsa_twitter_url() }}">{{dsa_social_settings.dsa_twitter_url() }} </a>.
 
-	                {% if config.plugins.pagination.enabled and collection.params.pagination %}
-	                    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
-	                {% endif %}
 				</div>
 			</div>
     	</div>

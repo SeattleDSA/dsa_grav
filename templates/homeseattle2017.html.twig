@@ -1,0 +1,35 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <div class="medium-6 columns">&nbsp;</div>
+    <div class="medium-6 columns">{{ page.content }}</div>
+    <div class="row">
+    	<div class="medium-6 columns"><h2>Form Placeholder</h2></div>
+    	<div class="medium-6 columns"><h2>Platform Placeholder</h2></div>
+    </div>
+    <div class="row">
+    	<div class="medium-12 columns">
+    		{% if config.plugins.facebook.enabled %}
+    			{{ facebook_events() }}
+    		{% endif %}
+    	</div>
+    	<div class="medium-12 columns">
+    		{% if config.plugins.facebook.enabled %}
+    			{{ facebook_events() }}
+    		{% endif %}
+    	</div>
+    	<div class="medium-12 columns">
+    		<div class="content-wrapper blog-content-list grid pure-g">
+				<div id="listing" class="block pure-u-2-3 h-feed">
+					{% for child in collection %}
+				        {% include 'partials/blog_item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+				    {% endfor %}
+
+	                {% if config.plugins.pagination.enabled and collection.params.pagination %}
+	                    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+	                {% endif %}
+				</div>
+			</div>
+    	</div>
+    </div>
+{% endblock %}

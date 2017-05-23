@@ -16,8 +16,10 @@
     {% endif %}
     <td class='details'>
       <a href='https://www.facebook.com/events/{{ event.event_link }}'><span class='name'>{{ event.name }}</span></a>
-      <span class='location'>{{ event.place.name }}</span>
-      <span class='period'>{{ event.period }}</span>
+      <div class='row'>
+        <span class='location medium-6 columns'>{{ event.place.name }}</span>
+        <span class='period medium-6 columns'>{{ event.period }}</span>
+      </div>
     </td>
   </tr>
 {% endfor %}

@@ -13,6 +13,24 @@ form:
           title: Blog Item
 
           fields:
+            attribution:
+              type: section
+              title: Attribution
+              underline: true
+            
+            header.attribution.author:
+              type: text
+              toggleable: true
+              label: Author(s)
+              classes: large
+              placeholder: Your Author
+
+            header.attribution.artist:
+              type: text
+              toggleable: true
+              label: Artist(s)
+              classes: large
+              placeholder: Your Photographer
 
             header_image:
               type: section

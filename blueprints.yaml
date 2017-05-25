@@ -26,7 +26,7 @@ form:
         validate:
           type: bool
  
-    dsa_social_settings.dsa_facebook_url:
+    DSAsocial.facebook:
       type: text
       size: large
       label: Facebook Account
@@ -36,7 +36,7 @@ form:
       validate:
         type: string
 
-    dsa_social_settings.dsa_twitter_url:
+    DSAsocial.twitter:
       type: text
       size: large
       label: Twitter Account
@@ -46,7 +46,7 @@ form:
       validate:
         type: string
 
-    dsa_social_settings.dsa_youtube_url:
+    DSAsocial.youtube:
       type: text
       size: large
       label: YouTube Account
@@ -56,7 +56,7 @@ form:
       validate:
         type: string
 
-    dsa_social_settings.dsa_soundcloud_url:
+    DSAsocial.soundcloud:
       type: text
       size: large
       label: SoundCloud Account

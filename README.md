@@ -5,3 +5,10 @@ The **Dsa** Theme is for [Grav CMS](http://github.com/getgrav/grav).  This READM
 ## Description
 
 Standard DSA theme
+
+## Features
+* Blog and hompage templates
+* Social sharing buttons blog-item
+* Customizable author and artist attribution
+* Customized facebook event feed
+* Fully automated queer luxury space communism easter eggs.

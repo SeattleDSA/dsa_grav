@@ -32,15 +32,16 @@
 			        {% set header_image = page.header.header_image|defined(true) %}
 	   				{% set header_image_width  = page.header.header_image_width|defined(900) %}
 	   				{% set header_image_height = page.header.header_image_height|defined(300) %}
-	    			{% set header_image_file = page.header.header_image_file %}
+	   				{% set header_image_media = page.media.images|first %}
+	    			{% set header_image_file = blog_image.url %}
 
 			        <div class="recent-post row card-gray">
-			            {% if header_image_file %}
-			                <div class="recent-post-image large-4 medium-4 small-5 columns">{{ header_image_file.cropZoom(60,60).quality(60) }}</div>
+			            {% if header_image %}
+			                <div class="recent-post-image circle" style='background-image: url("{{ p.media.images|first.url(true) }}");'><!-- header_image_file.cropZoom(60,60).quality(60) --></div>
 			            {% else %}
-			                <div class="recent-post-image large-4 medium-4 small-5 columns"><img src="{{ url('theme://images/blog-default.png') }}"></div>
+			                <div class="recent-post-image circle" style='background-image: url({{ url('theme://images/blog-default.png') }})'></div>
 			            {% endif %}
-			            <div class="recent-post-text large-8 medium-8 small-7 columns">
+			            <div class="recent-post-text">
 			                <h4 class="blog-item-title"><a href="{{p.url}}">{{ p.title }}</a></h4>
 			                <p>By {% if p.header.attribution.author is not sameas(false) %}{{ p.header.attribution.author }}{% else %}{{ config.site.title }}{% endif %} / {{ p.date|date("M j, Y")}}</p>
 			            </div>

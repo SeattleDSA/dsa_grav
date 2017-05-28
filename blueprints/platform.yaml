@@ -1,0 +1,29 @@
+title: platform
+'@extends':
+    type: default
+    context: blueprints://pages
+
+title: Default
+
+form:
+  fields:
+    tabs:
+
+      fields:
+        blog:
+          type: tab
+          title: Platform Options
+
+          fields:
+            alertbox:
+              type: section
+              title: Platform Items
+              underline: true
+            
+            metadata:
+              type: array
+              label: PLUGIN_ADMIN.METADATA
+              help: PLUGIN_ADMIN.METADATA_HELP
+              placeholder_key: PLUGIN_ADMIN.METADATA_KEY
+              placeholder_value: PLUGIN_ADMIN.METADATA_VALUE
+              required: false

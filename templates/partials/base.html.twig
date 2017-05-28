@@ -40,18 +40,20 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 {% block header %}
-    <div class="title-bar mobile-nav show-for-small-only" data-responsive-toggle="dsa-menu" data-hide-for="medium">
+    <div class="title-bar mobile-nav hide-for-large" data-responsive-toggle="dsa-menu" data-hide-for="large">
 		<div class="top-bar-left title-bar-title">
-		  <img src="{{ url('theme://images/dsa-rose-mark.svg') }}" class="logo-mark" />
-		  {{ config.site.title }}
+		  <a class="logo top-bar-left" href="{{ base_url == '' ? '/' : base_url }}">
+			  <img src="{{ url('theme://images/icons/dsa-rose-mark.svg') }}" class="logo-mark" />
+			  <span class="site-name">{{ config.site.title }}</span>
+		  </a>
 		</div>
         <button class="dsa-menu-icon top-bar-right" type="button" data-toggle="dsa-menu"><i class="fa fa-bars" aria-hidden="true"></i></button>
 	</div>
 	<div class="header top-bar" id="dsa-menu">
         <div class="padding">
-            <div class="top-bar-left show-for-medium">
+            <div class="top-bar-left show-for-large">
             	<a class="logo top-bar-left" href="{{ base_url == '' ? '/' : base_url }}">
-                	<img src="{{ url('theme://images/dsa-rose-mark.svg') }}" class="logo-mark" />
+                	<img src="{{ url('theme://images/icons/dsa-rose-mark.svg') }}" class="logo-mark" />
                 	<span class="site-name">{{ config.site.title }}</span>
             	</a>
            		{% block header_navigation %}
@@ -66,33 +68,35 @@
 {% endblock %}
 
 {% block body %}
-    <section id="body" class="body padding-top padding-bottom">
-        <div class="row padding">
-            <div class="small-12 columns">
-                {% block content %}{% endblock %}
-            </div>
-        </div>
+    <section id="body" class="body">
+            {% block content %}{% endblock %}
     </section>
 {% endblock %}
 
 {% block footer %}
     <div class="footer text-center padding-top">
         <div class="row padding-bottom">
-            <div class="large-4 medium-4 small-6 columns"><h2>Footer Column 1</h2></div>
+            <div class="large-4 medium-4 small-6 columns">
+            	<h2>Footer Column 1</h2>
+            	<img src="{{ url('theme://images/icons/dsa-rose-mark.svg') }}" class="logo-mark" />
+            </div>
             <div class="large-4 medium-4 small-6 columns">
                 <h2>Connect with us</h2>
-                {% if config.themes.dsa_grav.DSAsocial.facebook != '' %}
-                    <a href="{{config.themes.dsa_grav.DSAsocial.facebook }}"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
-                {% endif %}
-                {% if config.themes.dsa_grav.DSAsocial.twitter != '' %}
-                    <a href="{{config.themes.dsa_grav.DSAsocial.twitter }}"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
-                {% endif %}
-                {% if config.themes.dsa_grav.DSAsocial.youtube != '' %}
-                    <a href="{{config.themes.dsa_grav.DSAsocial.youtube }}"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a>
-                {% endif %}
-                {% if config.themes.dsa_grav.DSAsocial.soundcloud != '' %}
-                    <a href="{{config.themes.dsa_grav.DSAsocial.soundcloud }}"><i class="fa fa-soundcloud fa-2x" aria-hidden="true"></i></a>
-                {% endif %}
+                <div class="button-group">
+	                {% if config.themes.dsa_grav.DSAsocial.facebook != '' %}
+	                    <a href="{{config.themes.dsa_grav.DSAsocial.facebook }}" class="button"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+	                {% endif %}
+	                {% if config.themes.dsa_grav.DSAsocial.twitter != '' %}
+	                    <a href="{{config.themes.dsa_grav.DSAsocial.twitter }}" class="button"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+	                {% endif %}
+	                {% if config.themes.dsa_grav.DSAsocial.youtube != '' %}
+	                    <a href="{{config.themes.dsa_grav.DSAsocial.youtube }}" class="button"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></a>
+	                {% endif %}
+	                {% if config.themes.dsa_grav.DSAsocial.soundcloud != '' %}
+	                    <a href="{{config.themes.dsa_grav.DSAsocial.soundcloud }}" class="button"><i class="fa fa-soundcloud fa-2x" aria-hidden="true"></i></a>
+	                {% endif %}
+	                	<a href="http://dsausa.org/" class="button"><i class="fa fa-globe fa-2x" aria-hidden="true"></i></a>
+	            </div>
             </div>
             <div class="large-4 medium-4 small-6 columns"><h2>Footer Column 3</h2></div>
         </div>

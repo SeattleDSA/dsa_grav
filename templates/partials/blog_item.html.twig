@@ -7,7 +7,7 @@
     {% set header_image_caption = page.header.header_image_caption %}
 
     <div class="list-blog-header row">
-    	<div class="large-9 medium-9 blog-header-primary blog-padding columns">
+    	<div class="large-8 medium-8 blog-header-primary blog-padding columns">
     		<hr />
 	        <span class="list-blog-author">
 		        {% if page.header.attribution.author is not sameas(false) %}
@@ -43,25 +43,24 @@
 	            {{ header_image_media.cropZoom(header_image_width, header_image_height).html }}
 	        {% endif %}
 	    </div>
-	    <div class="large-3 medium-3  blog-header-secondary blog-padding columns">
+	    <div class="large-4 medium-4 blog-header-secondary blog-padding columns">
 	        <hr class="hide-for-small-only" />
 	        <span class="list-blog-date">
 	            <time class="dt-published" datetime="{{ page.date|date("c") }}">
-	                <span>{{ page.date|date("d") }}</span>
-	                <em>{{ page.date|date("M") }}</em>
+	                <span>{{ page.date|date("d") }}</span> <em>{{ page.date|date("M") }}</em>, <em>{{ page.date|date("Y") }}</em>
 	            </time>
 	        </span>
 	        <br />
-	        {% if page.taxonomy.tag %}
-	        <h4>Tags:</h4>
-	        <span class="tags">
-	            {% for tag in page.taxonomy.tag %}
-	            <a href="{{ blog.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ tag }}" class="p-category button hollow">{{ tag }}</a>
-	            {% endfor %}
-	        </span>
+			{% if page.taxonomy.tag %}
+		        <h4>Tags:</h4>
+		        <span class="tags">
+		            {% for tag in page.taxonomy.tag %}
+		            <a href="{{ blog.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ tag }}" class="p-category button hollow">{{ tag }}</a>
+		            {% endfor %}
+		        </span>
 	        {% endif %}
 	        <br />
-			<h4>Share This:</h4>
+	        <h4>Share This:</h4>
 	        <span class="list-blog-share">
 	            <a href="http://www.facebook.com/sharer.php?u={{ page.permalink }}&amp;t={{ page.title }}" title="Share" class="button button-circle"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 	            <a href="http://twitter.com/home/?status={{ page.title }} - {{ page.permalink }}" title="Tweet" class="button button-circle"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -72,47 +71,48 @@
 
     <div class="list-blog-padding row">
 
-    {% if page.header.continue_link is sameas(false) %}
-        <div class="e-content  blog-padding large-9 medium-9 columns">        
-            {{ page.content }}
-        </div>
-        {% if not truncate %}
-        {% set show_prev_next = true %}
-        {% endif %}
-    {% elseif truncate and page.summary != page.content %}
-        <div class="p-summary e-content blog-padding large-9 medium-9 columns">
-            {{ page.summary }}
-            <p><a href="{{ page.url }}" class="button">{{ 'Continue...'|t }}</a></p>
-        </div>
-    {% elseif truncate %}
-        <div class="p-summary e-content blog-padding large-9 medium-9 columns">
-            {{ page.content }}
-            <p><a href="{{ page.url }}" class="button">{{ 'Continue...'|t }}</a></p>
-        </div>
-    {% else %}
-        <div class="e-content large-9 blog-padding medium-9 columns">
-            {{ page.content }}
-        </div>
+	    {% if page.header.continue_link is sameas(false) %}
+	        <div class="e-content  blog-padding large-8 medium-8 columns">        
+	            {{ page.content }}
+	        </div>
+	        {% if not truncate %}
+	        {% set show_prev_next = true %}
+	        {% endif %}
+	    {% elseif truncate and page.summary != page.content %}
+	        <div class="p-summary e-content blog-padding large-8 medium-8 columns">
+	            {{ page.summary }}
+	            <p><a href="{{ page.url }}" class="button">{{ 'Continue...'|t }}</a></p>
+	        </div>
+	    {% elseif truncate %}
+	        <div class="p-summary e-content blog-padding large-8 medium-8 columns">
+	            {{ page.content }}
+	            <p><a href="{{ page.url }}" class="button">{{ 'Continue...'|t }}</a></p>
+	        </div>
+	    {% else %}
+	        <div class="e-content large-8 medium-8 columns blog-padding">
+	            {{ page.content }}
+	        </div>
 
-        {% if config.plugins.comments.enabled %}
-            {% include 'partials/comments.html.twig' %}
-        {% endif %}
+	        {% if config.plugins.comments.enabled %}
+	            {% include 'partials/comments.html.twig' %}
+	        {% endif %}
 
-        {% set show_prev_next = true %}
-    {% endif %}
+	        {% set show_prev_next = true %}
+	    {% endif %}
 
-    {% if show_prev_next %}
+	    {% if show_prev_next %}
+	        <div class="large-4 medium-4 columns">
+		        <p class="prev-next">
+		            {% if not page.isFirst %}
+		                <a class="button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> {{ 'BLOG.ITEM.NEXT_POST'|t }}</a>
+		            {% endif %}
 
-        <p class="prev-next">
-            {% if not page.isFirst %}
-                <a class="button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> {{ 'BLOG.ITEM.NEXT_POST'|t }}</a>
-            {% endif %}
-
-            {% if not page.isLast %}
-                <a class="button" href="{{ page.prevSibling.url }}">{{ 'BLOG.ITEM.PREV_POST'|t }} <i class="fa fa-chevron-right"></i></a>
-            {% endif %}
-        </p>
-    {% endif %}
+		            {% if not page.isLast %}
+		                <a class="button" href="{{ page.prevSibling.url }}">{{ 'BLOG.ITEM.PREV_POST'|t }} <i class="fa fa-chevron-right"></i></a>
+		            {% endif %}
+		        </p>
+	        </div>
+	    {% endif %}
 
     </div>
 </div>

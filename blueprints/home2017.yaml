@@ -1,0 +1,27 @@
+title: home2017
+'@extends':
+    type: default
+    context: blueprints://pages
+
+title: Default
+
+form:
+  fields:
+    tabs:
+
+      fields:
+        blog:
+          type: tab
+          title: Homepage Options
+
+          fields:
+            alertbox:
+              type: section
+              title: Alert Box
+              underline: true
+            
+            header.alertbox.message:
+              type: text
+              toggleable: true
+              label: Alert Box
+              placeholder: No war but class war.

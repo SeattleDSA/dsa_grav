@@ -1,7 +1,8 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    <div class="row padding-top">
+<div class="homepage-2017">
+	<div class="row padding-top">
     	<div class="medium-6 columns">
     		<div class="row margin-bottom-small">
 	    		<div class="small-4 columns">
@@ -33,14 +34,14 @@
 	   				{% set header_image_height = page.header.header_image_height|defined(300) %}
 	    			{% set header_image_file = page.header.header_image_file %}
 
-			        <div class="recent-post row margin-bottom-small">
+			        <div class="recent-post row card-gray">
 			            {% if header_image_file %}
 			                <div class="recent-post-image large-4 medium-4 small-5 columns">{{ header_image_file.cropZoom(60,60).quality(60) }}</div>
 			            {% else %}
 			                <div class="recent-post-image large-4 medium-4 small-5 columns"><img src="{{ url('theme://images/blog-default.png') }}"></div>
 			            {% endif %}
 			            <div class="recent-post-text large-8 medium-8 small-7 columns">
-			                <h4><a href="{{p.url}}">{{ p.title }}</a></h4>
+			                <h4 class="blog-item-title"><a href="{{p.url}}">{{ p.title }}</a></h4>
 			                <p>By {% if p.header.attribution.author is not sameas(false) %}{{ p.header.attribution.author }}{% else %}{{ config.site.title }}{% endif %} / {{ p.date|date("M j, Y")}}</p>
 			            </div>
 			        </div>
@@ -55,4 +56,5 @@
 
     	</div>
     </div>
+</div>
 {% endblock %}

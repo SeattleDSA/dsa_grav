@@ -41,13 +41,13 @@
 	}(document, 'script', 'facebook-jssdk'));</script>
 {% block header %}
     <div class="title-bar mobile-nav hide-for-large" data-responsive-toggle="dsa-menu" data-hide-for="large">
-		<div class="top-bar-left title-bar-title">
+		<div class="title-bar-left title-bar-title">
 		  <a class="logo top-bar-left" href="{{ base_url == '' ? '/' : base_url }}">
 			  <img src="{{ url('theme://images/icons/dsa-rose-mark.svg') }}" class="logo-mark" />
 			  <span class="site-name">{{ config.site.title }}</span>
 		  </a>
 		</div>
-        <button class="dsa-menu-icon top-bar-right" type="button" data-toggle="dsa-menu"><i class="fa fa-bars" aria-hidden="true"></i></button>
+        <button class="dsa-menu-icon title-bar-right" type="button" data-toggle="dsa-menu"><i class="fa fa-bars" aria-hidden="true"></i></button>
 	</div>
 	<div class="header top-bar" id="dsa-menu">
         <div class="padding">
@@ -56,13 +56,14 @@
                 	<img src="{{ url('theme://images/icons/dsa-rose-mark.svg') }}" class="logo-mark" />
                 	<span class="site-name">{{ config.site.title }}</span>
             	</a>
-           		{% block header_navigation %}
             </div>
             
             <nav class="main-nav top-bar-right">
-                {% include 'partials/navigation.html.twig' %}
+            	{% block header_navigation %}
+                	{% include 'partials/navigation.html.twig' %}
+                {% endblock %}
             </nav>
-            {% endblock %}
+           
         </div>
     </div>
 {% endblock %}

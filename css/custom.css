@@ -5,7 +5,7 @@
 header, body, p {font-family: ManifoldDSA-Regular, Helvetica, Tahoma, Sans-Serif;}
 h1, h2, h3, h4, h5 {font-family: ManifoldDSA-Light, Helvetica, Tahoma, Sans-Serif;}
 
-.homepage-blog-item-title, #facebook-events .event-title, strong, b {
+.blog-item-title, #facebook-events .event-title, strong, b {
 	font-family: ManifoldDSA-ExtraBold, Helvetica, Tahoma, Sans-Serif;
 }
 
@@ -165,7 +165,7 @@ img.logo-mark {
 	color: #fff;
 }
 
-.dsa-menu-icon.top-bar-right {
+.dsa-menu-icon.title-bar-right {
 	color: white;
 	padding: 0.5rem;
 	border-radius: 2rem;
@@ -174,7 +174,7 @@ img.logo-mark {
     margin-top: 0.45rem;
 }
 
-.dsa-menu-icon.top-bar-right:hover {
+.dsa-menu-icon.title-bar-right:hover {
 	color: white;
 	background-color: #231F20;
 	-webkit-transform: rotate(-45deg); /* Safari */
@@ -239,12 +239,6 @@ img.logo-mark {
 	padding: 1rem;
 }
 
-/*********
-*
-* Eva 2017 Theme
-*
-**********/
-
 .dsa-space {
    min-height: 3rem;
 }
@@ -264,6 +258,49 @@ img.logo-mark {
   margin-bottom: 0;
   display: inline;
 }
+
+/*********
+*
+*	Default 2017 Homepage Theme
+*
+**********/
+
+.dsa-national-logomark {
+  float: left;
+  width: 9rem;
+  max-width: 100%;
+  height: auto;
+}
+
+h1.dsa-national-logotype {
+  font-family: ManifoldDSA-ExtraBold, Helvetica, Tahoma, Sans-Serif;
+  border-bottom: 0.25rem solid #231F20;
+  display: inline-block;
+  font-size: 4rem;
+  padding-bottom: 1.25rem;
+  line-height: 0.75;
+}
+
+h2.dsa-local-brand {
+  font-family: ManifoldDSA-Medium, Helvetica, Tahoma, Sans-Serif;
+  font-size: 1.5rem;
+}
+
+.homepage-2017 .card-gray, .homepage-2017 .card {
+  background-color: transparent;
+  padding: 2rem 0rem;
+  border-top: 1px solid #ddd;
+}
+
+hr {
+	border-bottom: #ddd;
+}
+
+/*********
+*
+*	Eva 2017 Theme
+*
+**********/
 
 input::placeholder, textarea::placeholder, input#mce-FNAME::placeholder, input#mce-LNAME::placeholder, input#mce-EMAIL::placeholder {
 	color: #aaa;
@@ -299,26 +336,6 @@ button.dsa-close {
 
 .button-group .button {
 margin-right: 1em;
-}
-.dsa-national-logomark {
-  float: left;
-  width: 9rem;
-  max-width: 100%;
-  height: auto;
-}
-
-h1.dsa-national-logotype {
-  font-family: ManifoldDSA-ExtraBold, Helvetica, Tahoma, Sans-Serif;
-  border-bottom: 0.25rem solid #231F20;
-  display: inline-block;
-  font-size: 4rem;
-  padding-bottom: 1.25rem;
-  line-height: 0.75;
-}
-
-h2.dsa-local-brand {
-  font-family: ManifoldDSA-Medium, Helvetica, Tahoma, Sans-Serif;
-  font-size: 1.5rem;
 }
 
 .card-gray, #content #inner-content.card-gray {

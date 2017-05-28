@@ -3,7 +3,15 @@
 	{% for event in events|slice(0, count)  %}
 	  <div class='facebook-event margin-bottom-small card-gray small-12' data-timestart='{{ event.original_start }}' data-timeend='{{ event.original_end}}'>
 	    
-	    <div class='details'>
+    	{% if showCover %}
+	      {% if event.cover != '' %}
+	        <div class="event-cover" style='background-image: url({{ event.cover.source }});'>
+	        	
+	        </div>
+	      {% endif %}
+	    {% endif %}
+	    
+	    <div class='event-details'>
 	    	<h4 class='event-title'>
 	    		<a href='https://www.facebook.com/events/{{ event.event_link }}'>{{ event.name }}</a>
 	    	</h4>

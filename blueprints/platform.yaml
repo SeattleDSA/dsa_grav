@@ -22,7 +22,7 @@ form:
             
             metadata:
               type: array
-              label: PLUGIN_ADMIN.METADATA
+              label: Platform 
               help: PLUGIN_ADMIN.METADATA_HELP
               placeholder_key: PLUGIN_ADMIN.METADATA_KEY
               placeholder_value: PLUGIN_ADMIN.METADATA_VALUE

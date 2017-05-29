@@ -26,20 +26,7 @@
 	            <h1 class="p-name"><a href="{{ page.url }}" class="u-url">{{ page.title }}</a></h1>
 	        {% endif %}
 	        {% if header_image %}
-	            {% if header_image_file %}
-	                {% set header_image_media = page.media.images[header_image_file] %}
-	                <p>{% if page.header.header_image_caption is not sameas(false) %}
-	                		{{ page.header.header_image_caption }}
-	                	{% endif %}
-	                </p>
-	                <p>Featured Art by
-	                	{% if page.header.attribution.artist is not sameas(false) %}
-	                		{{ page.header.attribution.artist }}
-	                	{% endif %}
-	                </p>
-	            {% else %}
-	                {% set header_image_media = page.media.images|first %}
-	            {% endif %}
+	            {% set header_image_media = page.media.images|first %}
 	            {{ header_image_media.cropZoom(header_image_width, header_image_height).html }}
 	        {% endif %}
 	    </div>

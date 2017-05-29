@@ -37,7 +37,7 @@
 
 			        <div class="recent-post row card-gray">
 			            {% if header_image %}
-			                <div class="recent-post-image circle" style='background-image: url("{{ p.media.images|first.url(true) }}");'><!-- header_image_file.cropZoom(60,60).quality(60) --></div>
+			                <a href="{{p.url}}" class="recent-post-image circle" style='background-image: url("{{ p.media.images|first.url(true) }}");'><!-- header_image_file.cropZoom(60,60).quality(60) --></a>
 			            {% else %}
 			                <div class="recent-post-image circle" style='background-image: url({{ url('theme://images/blog-default.png') }})'></div>
 			            {% endif %}

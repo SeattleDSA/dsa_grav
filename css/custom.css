@@ -930,6 +930,13 @@ input#mce-FNAME::placeholder, input#mce-LNAME::placeholder, input#mce-EMAIL::pla
     transform: translateY(-50%) scale(1.2)
 }
 
+.orbit-slide div p {
+	width: 75%;
+	margin: 0 auto;
+}
+
+/*****/
+
 .homepage-events {
 	background-color: #ec1f27;
 }

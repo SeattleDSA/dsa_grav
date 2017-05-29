@@ -5,9 +5,7 @@
 	    
     	{% if showCover %}
 	      {% if event.cover != '' %}
-	        <div class='event-cover circle' style='background-image: url({{ event.cover.source }});'/>
-	        	
-	        </div>
+	        <a href='https://www.facebook.com/events/{{ event.event_link }}' class='event-cover circle' style='background-image: url({{ event.cover.source }});'></a>
 	      {% endif %}
 	    {% endif %}
 	    

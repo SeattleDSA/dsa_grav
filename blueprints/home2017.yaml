@@ -25,3 +25,25 @@ form:
               toggleable: true
               label: Alert Box
               placeholder: No war but class war.
+
+            header.alertbox.display:
+              type: toggle
+              label: Display Alert Box?
+              highlight: 1
+              default: 1
+              options:
+                  1: Enabled
+                  0: Disabled
+              validate:
+                  type: bool
+
+          fields:
+            blog_info:
+              type: section
+              title: Blog Info
+              underline: true
+
+            header.blog_info.folder:
+              type: text
+              label: Alert Box
+              placeholder: No war but class war.

@@ -27,7 +27,13 @@
     <div class="row">
     	<div class="medium-6 columns">
 		    <h2>Recent Posts</h2>
-			    {% for p in page.find('/dispatches').children.order('date', 'desc').slice(0, 5) %}
+		    	{% if page.header.bloginfo.folder is not sameas(false) %}
+		        	{% set blogfolder = page.header.bloginfo.folder %}
+		        {% else %}
+		        	{% set blogfolder = "blog" %}
+				{% endif %}
+				
+			    {% for p in page.find('/dispatches').children.order('date', 'desc').slice(0, 3) %}
 			        {% set bannerimage = p.media['banner.jpg'] %}
 			        {% set header_image = page.header.header_image|defined(true) %}
 	   				{% set header_image_width  = page.header.header_image_width|defined(900) %}
@@ -47,6 +53,7 @@
 			            </div>
 			        </div>
 			    {% endfor %}
+			    <a href="/dispatches/" class="button">View All Posts</a>
     	</div>
     	<div class="medium-6 columns">
     		{% if config.plugins.facebook.enabled %}

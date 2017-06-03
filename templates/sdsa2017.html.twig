@@ -117,7 +117,7 @@
         		<h2 class="text-center blog-heading">Dispatches<small>From the SDSA Blog</small></h2>
             </div>
             <div class="row">
-                {% for p in page.find('/dispatches').children.order('date', 'desc').slice(0, 5) %}
+                {% for p in page.find('/dispatches').children.order('date', 'desc').slice(0, 2) %}
                     {% set bannerimage = p.media['banner.jpg'] %}
                     {% set header_image = page.header.header_image|defined(true) %}
                     {% set header_image_width  = page.header.header_image_width|defined(900) %}

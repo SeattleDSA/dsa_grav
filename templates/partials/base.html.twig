@@ -40,6 +40,7 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 {% block header %}
+<<<<<<< HEAD
     <div class="title-bar mobile-nav hide-for-large" data-responsive-toggle="dsa-menu" data-hide-for="large">
 		<div class="title-bar-left title-bar-title">
 		  <a class="logo top-bar-left" href="{{ base_url == '' ? '/' : base_url }}">
@@ -62,6 +63,17 @@
             	{% block header_navigation %}
                 	{% include 'partials/navigation.html.twig' %}
                 {% endblock %}
+=======
+    <div class="header">
+        <div class="row padding">
+            <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
+                <i class="fa fa-rebel"></i>
+                {{ config.site.title }}
+            </a>
+            {% block header_navigation %}
+            <nav class="main-nav">
+                {% include 'partials/navigation.html.twig' %}
+>>>>>>> origin/master
             </nav>
            
         </div>
@@ -69,12 +81,20 @@
 {% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
     <section id="body" class="body">
             {% block content %}{% endblock %}
+=======
+    <section id="body">
+        <div class="row padding">
+        {% block content %}{% endblock %}
+        </div>
+>>>>>>> origin/master
     </section>
 {% endblock %}
 
 {% block footer %}
+<<<<<<< HEAD
     <div class="footer text-center padding-top">
         <div class="row padding-bottom">
             <div class="large-4 medium-4 small-6 columns">
@@ -102,6 +122,10 @@
             <div class="large-4 medium-4 small-6 columns"><h2>Footer Column 3</h2></div>
         </div>
         <div class="row">
+=======
+    <div class="footer text-center">
+        <div class="row padding">
+>>>>>>> origin/master
             <p><a href="https://github.com/SeattleDSA/grav-theme-dsa">grav-theme-dsa</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="https://seattledsa.org/">Seattle DSA</a>.</p>
         </div>
     </div>

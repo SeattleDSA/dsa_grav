@@ -1,4 +1,5 @@
 <div id='facebook-events'>
+<<<<<<< HEAD
 <h2 class='event-heading'>{{sectionTitleRaw}}</h2>
 	{% for event in events|slice(0, count)  %}
 	  <div class='facebook-event margin-bottom-small card-gray small-12' data-timestart='{{ event.original_start }}' data-timeend='{{ event.original_end}}'>
@@ -26,3 +27,29 @@
 	  </div>
 	{% endfor %}
 </div>
+=======
+<h2 class="heading">{{sectionTitleRaw}}</h2>
+<table>
+{% for event in events|slice(0, count)  %}
+  <tr class='facebook-event' data-timestart='{{ event.original_start }}' data-timeend='{{ event.original_end}}'>
+    <td class='start-date'>
+      <span class='month'>{{ event.start_time.monthName }}</span>
+      <span class='day'>{{ event.start_time.day }}</span>
+    </td>
+    {% if showCover %}
+      {% if event.cover != '' %}
+        <td class='cover-image' style='background-image: url({{ event.cover.source }});'/></td>
+      {% else %}
+        <td class='cover-image'/></td>
+      {% endif %}
+    {% endif %}
+    <td class='details'>
+      <a href='https://www.facebook.com/events/{{ event.event_link }}'><span class='name'>{{ event.name }}</span></a>
+      <span class='location'>{{ event.place.name }}</span>
+      <span class='period'>{{ event.period }}</span>
+    </td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+>>>>>>> origin/master

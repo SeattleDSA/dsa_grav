@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 name: DSA
-=======
-name: dsa_grav
->>>>>>> origin/master
 version: 0.1.0
-description: Grav Theme for Democratic Socialists of America (DSA)
+description: Standard DSA theme
 icon: rebel
 author:
   name: Seattle DSA

@@ -80,6 +80,18 @@
             <div class="large-4 medium-4 small-6 columns">
             	<h2>Footer Column 1</h2>
             	<img src="{{ url('theme://images/icons/dsa-rose-mark.svg') }}" class="logo-mark" />
+            	
+            	<div class="button-group">
+	               {% macro loop(page) %}
+					    {% for p in page.children.visible %}
+					        {% set current_page = (p.active or p.activeChild) ? 'selected' : '' %}
+				                <a href="{{ p.url }}" class="button dark">
+				                	{{ p.menu }}
+				                </a>				        
+					    {% endfor %}
+					{% endmacro %}
+				</div>
+                
             </div>
             <div class="large-4 medium-4 small-6 columns">
                 <h2>Connect with us</h2>

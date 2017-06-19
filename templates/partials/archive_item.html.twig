@@ -1,0 +1,121 @@
+<div class="archive-item list-item h-entry">
+
+    {% set header_image = page.header.header_image|defined(true) %}
+    {% set header_image_width  = page.header.header_image_width|defined(900) %}
+    {% set header_image_height = page.header.header_image_height|defined(300) %}
+    {% set header_image_file = page.header.header_image_file %}
+    {% set header_image_caption = page.header.header_image_caption %}
+
+    <div class="list-archive-header">
+    	{% if header_image %}
+	            {% set header_image_media = page.media.images|first %}
+	    {% endif %}
+    	<div class="blog-header-primary blog-padding archive-cover" style="background-image: url({{header_image_media.url}});">
+    		    
+	        {% if page.header.link %}
+	            <a href="{{ page.header.link }}" class="u-url archive-item-link">
+	            	<h1 class="archive-item-name">{{ page.title }}</h1>
+	            	<div class="archive-item-info">
+		            	<span class="archive-item-date">
+				            <time class="dt-published" datetime="{{ page.date|date("c") }}">
+				                <span>{{ page.date|date("d") }}</span> <em>{{ page.date|date("M") }}</em>, <em>{{ page.date|date("Y") }}</em>
+				            </time>
+			        	</span>
+			        	<span class="archive-item-author">
+					        {% if page.header.attribution.author is not sameas(false) %}
+					            {{ page.header.attribution.author }}
+					        {% else %}
+					        	{{ config.site.title }}
+					        {% endif %}
+					    </span>
+					</div>
+					<div class="archive-item-summary">
+						{% if page.header.continue_link is sameas(false) %}
+					        { page.content }}
+					        {% if not truncate %}
+					        {% set show_prev_next = true %}
+					        {% endif %}
+					    {% elseif truncate and page.summary != page.content %}
+					       {{ page.summary }}
+					    {% elseif truncate %}
+					    	{{ page.content }}
+					    {% else %}
+					        {{ page.content }}
+					        {% set show_prev_next = true %}
+					    {% endif %}
+					</div>
+	        	</a>
+	        	<div class="archive-item-share">
+	        			<p>Share This:
+			        	<span class="list-blog-share">
+				            <a href="http://www.facebook.com/sharer.php?u={{ page.permalink }}&amp;t={{ page.title }}" title="Share" class="button button-circle"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				            <a href="http://twitter.com/home/?status={{ page.title }} - {{ page.permalink }}" title="Tweet" class="button button-circle"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				            <a href="mailto:?body={{ page.permalink }}&subject={{ page.title }}" title="Email" class="button button-circle"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+			        	</span></p>
+			   	</div>
+	        {% else %}
+	            <a href="{{ page.url }}" class="u-url archive-item-link">
+	            	<h1 class="archive-item-name">{{ page.title }}</h1>
+	            	<div class="archive-item-info">
+		            	<span class="archive-item-date">
+				            <time class="dt-published" datetime="{{ page.date|date("c") }}">
+				                <span>{{ page.date|date("d") }}</span> <em>{{ page.date|date("M") }}</em>, <em>{{ page.date|date("Y") }}</em>
+				            </time>
+			        	</span>
+			        	<span class="archive-item-author">
+						        {% if page.header.attribution.author is not sameas(false) %}
+					            	{{ page.header.attribution.author }}
+						        {% else %}
+						        	{{ config.site.title }}
+						       	{% endif %}
+					    </span>
+		        	</div>
+		        	<div class="archive-item-summary">
+						{% if page.header.continue_link is sameas(false) %}
+					        { page.content }}
+					        {% if not truncate %}
+					        {% set show_prev_next = true %}
+					        {% endif %}
+					    {% elseif truncate and page.summary != page.content %}
+					       {{ page.summary }}
+					    {% elseif truncate %}
+					    	{{ page.content }}
+					    {% else %}
+					        {{ page.content }}
+					        {% set show_prev_next = true %}
+					    {% endif %}
+					</div>
+	            </a>
+	            <div class="archive-item-share">
+	        			<p>Share This:
+				        	<span class="list-blog-share">
+					            <a href="http://www.facebook.com/sharer.php?u={{ page.permalink }}&amp;t={{ page.title }}" title="Share" class="button button-circle"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+					            <a href="http://twitter.com/home/?status={{ page.title }} - {{ page.permalink }}" title="Tweet" class="button button-circle"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+					            <a href="mailto:?body={{ page.permalink }}&subject={{ page.title }}" title="Email" class="button button-circle"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+				        	</span>
+			        	</p>
+			   		</div>
+	        {% endif %}
+
+	    </div>
+
+    </div>
+
+    <div class="list-blog-padding row">
+
+	    {% if show_prev_next %}
+	        <div class="large-4 medium-4 columns">
+		        <p class="prev-next">
+		            {% if not page.isFirst %}
+		                <a class="button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> {{ 'BLOG.ITEM.NEXT_POST'|t }}</a>
+		            {% endif %}
+
+		            {% if not page.isLast %}
+		                <a class="button" href="{{ page.prevSibling.url }}">{{ 'BLOG.ITEM.PREV_POST'|t }} <i class="fa fa-chevron-right"></i></a>
+		            {% endif %}
+		        </p>
+	        </div>
+	    {% endif %}
+
+    </div>
+</div>

@@ -49,7 +49,7 @@
 			            {% endif %}
 			            <div class="recent-post-text">
 			                <h4 class="blog-item-title"><a href="{{p.url}}">{{ p.title }}</a></h4>
-			                <p>By {% if p.header.attribution.author is not sameas(false) %}{{ p.header.attribution.author }}{% else %}{{ config.site.title }}{% endif %} / {{ p.date|date("M j, Y")}}</p>
+			                <p>By {% if p.header.attribution.author is not sameas(true) %}{{ p.header.attribution.author }}{% else %}{{ config.site.title }}{% endif %} / {{ p.date|date("M j, Y")}}</p>
 			            </div>
 			        </div>
 			    {% endfor %}

@@ -1,10 +1,18 @@
 <div class="list-item h-entry">
 
+
+
     {% set header_image = page.header.header_image|defined(true) %}
     {% set header_image_width  = page.header.header_image_width|defined(900) %}
     {% set header_image_height = page.header.header_image_height|defined(300) %}
     {% set header_image_file = page.header.header_image_file %}
     {% set header_image_caption = page.header.header_image_caption %}
+
+    	<meta property="og:url"				content="{{ page.url }}" />
+		<meta property="og:type"			content="article" />
+		<meta property="og:title"			content="{{ page.title }}" />
+		<meta property="og:description"		content="{{ page.summary }}" />
+		<meta property="og:image"			content="{{header_image_media.url}}" />
 
     <div class="list-blog-header row">
     	<div class="large-8 medium-8 blog-header-primary blog-padding columns">

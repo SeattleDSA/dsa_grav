@@ -30,6 +30,10 @@ a:hover {
     color: #175E91;
 }
 
+.body {
+	min-height: 70vh;
+}
+
 .body a {
 	color: #ec1f27;
 }
@@ -1016,4 +1020,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	color: #fff;
 	background-color: rgba(0,0,0,0.25);
 	padding: 0rem 2rem 2rem 2rem;
+}
+
+.archive-item.list-item {
+	margin: 2px 0px;
 }

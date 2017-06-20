@@ -35,28 +35,28 @@ a:hover {
 }
 
 /* Button */
-.body a.button {
+.body a.button, .body button {
 	color: #fff;
 	border-radius: 2em;
 	background-color: #ec1f27;
 	transition: all 150ms;
 }
 
-.body a.button.hollow {
+.body a.button.hollow, .body button.hollow {
 	border: 1px solid #ec1f27;
 	color: #ec1f27;
 	background-color:transparent;
 }
 
 
-.body a.button.hollow.circle {
+.body a.button.hollow.circle, .body button.hollow.circle {
 	width: 3rem;
     height: 3rem;
     font-size: 1.25rem;
     padding: 0.75rem;
 }
 
-.body a.button:hover, .body a.button.hollow:hover {
+.body a.button:hover, .body a.button.hollow:hover, .body button:hover, .body button.hollow:hover {
 	color: #fff;
 	border-radius: 2em;
 	background-color: #231F20;

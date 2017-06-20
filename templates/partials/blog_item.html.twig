@@ -10,9 +10,11 @@
     	<div class="large-8 medium-8 blog-header-primary blog-padding columns">
     		<hr />
 	        <span class="list-blog-author">
-		        {% if page.header.attribution.author is not sameas(false) %}
-		            {{ page.header.attribution.author }}
-		        {% endif %}
+		        {% if page.header.attribution.author is empty %}
+					{{ config.site.title }}
+				{% else %}
+					{{ page.header.attribution.author }}
+				{% endif %}
 	        </span>
 
 	        {% if page.header.link %}

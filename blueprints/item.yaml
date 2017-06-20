@@ -20,14 +20,12 @@ form:
             
             header.attribution.author:
               type: text
-              toggleable: true
               label: Author(s)
               classes: large
               placeholder: Your Author
 
             header.attribution.artist:
               type: text
-              toggleable: true
               label: Artist(s)
               classes: large
               placeholder: Your Photographer

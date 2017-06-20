@@ -1,0 +1,105 @@
+{% extends 'partials/base.html.twig' %}
+
+
+{% block content %}
+     <div class="row">
+    	{{ page.content }}
+    </div>
+    <div class="row form-join">
+    	{% if page.stripe.pubkey is not sameas(false) %}
+    		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+			<script type="text/javascript">
+			      // Use the pk_live_* key when this goes live
+			      Stripe.setPublishableKey("{{ page.header.stripe.pubkey }}");
+			      var stripeResponseHandler = function($form) {
+			        return function(response, tokenObject) {
+			          if (tokenObject.error) { // Problem!
+			            // Show the errors on the form
+			            $form.find('.payment-errors').html(tokenObject.error.message);
+			            $form.find('button').prop('disabled', false); // Re-enable submission
+			          } else { // Token was created!
+			            // Get the token ID:
+			            var token = tokenObject.id;
+			            // Insert the token into the form so it gets submitted to the server:
+			            $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+			            // Submit the form:
+			            $form.get(0).submit();
+			          }
+			        };
+			      };
+			      $(function(){
+			        $("button[data-stripe-submit]").click(function(){
+			          $(this).prop('disabled', true);
+			          var $form = $(this).parents('form');
+			          Stripe.card.createToken({
+			            number: $form.find('[data-card-number]').val(),
+			            cvc: $form.find('[data-card-cvc]').val(),
+			            exp_month: $form.find('[data-card-expiry-month]').val(),
+			            exp_year: $form.find('[data-card-expiry-year]').val()
+			          }, stripeResponseHandler($form));
+			        });
+			        // From here down is simply for showing/hiding the signup or donate forms.
+			        $("a[data-show]").click(function(e) {
+			          e.preventDefault();
+			          var show = $(this).data("show");
+			          if(show == "signup") {
+			            $("#signup-form").show();
+			            $("#donate-form").hide();
+			          } else {
+			            $("#signup-form").hide();
+			            $("#donate-form").show();
+			          }
+			        });
+			        $("a[data-show=signup]").click();
+			      });
+			</script>
+			<form id="payment-form" action="https://wt-64417167ba0995031dff46dd4e6aafa1-0.run.webtask.io/national-dsa-signup-live" method="post">
+				<div class="payment-errors"></div>
+				<div class="row">
+					<div class="large-12 columns"><h2>Contact Information</h2></div>
+					<div class="medium-6 columns"><label>Email <input name="email" required="" type="email" /></label></div>
+					<div class="medium-6 columns"><label>Phone <input name="phone" required="" type="tel" /></label></div>
+				</div>
+				<div class="row">
+					<div class="medium-6 columns"><label>First Name <input name="firstname" required="" type="text" /></label></div>
+					<div class="medium-6 columns"><label>Last Name <input name="lastname" required="" type="text" /></label></div>
+				</div>
+
+				<hr />
+
+				<div class="row">
+					<div class="medium-12 columns"><label>Address 1 <input name="address1" required="" type="text" /></label></div>
+					<div class="medium-12 columns"><label>Address 2 <input name="address2" type="text" /></label></div>
+				</div>
+				<div class="row">
+					<div class="large-4 medium-12 columns"><label>City <input name="city" required="" type="text" /></label></div>
+					<div class="large-4 medium-6 small-6 columns"><label>State <input name="state" required="" type="text" /></label></div>
+					<div class="large-4 medium-6 small-6 columns"><label>Zip <input name="zip" required="" type="text" /></label></div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+						<h2>Donation Amount</h2>
+						<p>These dues are valid for one year membership in DSA.</p>
+					</div>
+					<div class="large-12 columns">
+						<div class="input-group"><label class="input-group-label">Amount</label><select name="amount" class="input-group-field"><option value="500">$5</option><option value="1000">$10</option><option value="2500">$25</option><option value="2500">$50</option></select></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+						<h2>Payment Information</h2>
+					</div>
+				<!-- VERY important that these have the data-* fields and not a name attribute -->
+					<div class="medium-12 columns"><label>Credit Card Number <input required="" type="text" data-card-number="" /></label></div>
+					<div class="large-4 medium-12 columns"><label>Exp Month <input required="" size="2" type="text" data-card-expiry-month="" /></label></div>
+					<div class="large-4 medium-12 columns"><label>Exp Year <input required="" size="2" type="text" data-card-expiry-year="" /></label></div>
+					<div class="large-4 medium-12 columns"><label>Card Security Code <input required="" size="3" type="text" data-card-cvc="" /></label></div>
+					<div class="large-12 medium-12 columns"><fieldset class="fieldset"><legend>How often should this donation occur?</legend><input id="monthly_or_one_time" checked="checked" name="monthly" type="radio" value="" /><label>Once Time</label></input><input id="monthly_or_one_time" name="monthly" type="radio" value="true" /><label>Monthly</label></input></fieldset></div>
+				</div>
+				<div class="row">
+					<div class="large-12 medium-12 small-12 columns"><button type="button" class="button large expanded" data-stripe-submit="true">Donate</button></div>
+				</div>
+			</form>
+		{% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+title: form_join
+'@extends':
+    type: default
+    context: blueprints://pages
+
+title: Default
+
+form:
+  fields:
+    tabs:
+
+      fields:
+        blog:
+          type: tab
+          title: Stripe Config
+
+          fields:
+            stripe:
+              type: section
+              title: Stripe
+              underline: true
+            
+            header.stripe.pubkey:
+              type: text
+              toggleable: true
+              label: Public Key
+              placeholder: Find private key at
+
+            header.stripe.privkey:
+              type: text
+              toggleable: true
+              label: Private Key
+              placeholder: Find private key at
+            header.stripe.displayform:
+              type: toggle
+              label: Display Form?
+              highlight: 1
+              default: 0
+              options:
+                  1: Enabled
+                  0: Disabled
+              validate:
+                  type: bool

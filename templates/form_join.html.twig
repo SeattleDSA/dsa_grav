@@ -1,0 +1,99 @@
+{% extends 'partials/base.html.twig' %}
+
+
+{% block content %}
+    <div class="row">
+    	{{ page.content }}
+    	 <hr>
+    </div>
+    <div class="row form-join">
+    	{% if page.stripe.pubkey is not sameas(false) %}
+    		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+			<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+			<script type="text/javascript">
+			         // Use the pk_live_* key when this goes live
+			         Stripe.setPublishableKey("{{ page.header.stripe.pubkey }}");
+			         var stripeResponseHandler = function(response, tokenObject) {
+			             var $form = $('#payment-form');
+			             if (tokenObject.error) { // Problem!
+			                 // Show the errors on the form
+			                 $form.find('.payment-errors').html(tokenObject.error.message);
+			                 $form.find('button').prop('disabled', false); // Re-enable submission
+			             } else { // Token was created!
+			                 // Get the token ID:
+			                 var token = tokenObject.id;
+			                 // Insert the token into the form so it gets submitted to the server:
+			                 $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+			                 // Submit the form:
+			                 $form.get(0).submit();
+			             }
+			         };
+			         $(function(){
+			             $("button[data-stripe-submit]").click(function(){
+			                 $(this).prop('disabled', true);
+			                 Stripe.card.createToken({
+			                     number: $('[data-card-number]').val(),
+			                     cvc: $('[data-card-cvc]').val(),
+			                     exp_month: $('[data-card-expiry-month]').val(),
+			                     exp_year: $('[data-card-expiry-year]').val()
+			                 }, stripeResponseHandler);
+			             });
+			         });
+			</script>
+			<form id="payment-form" action="https://wt-64417167ba0995031dff46dd4e6aafa1-0.run.webtask.io/national-dsa-signup-live" method="post">
+				<div class="payment-errors"></div>
+				<div class="row">
+					<div class="large-12 columns"><h2>Contact Information</h2></div>
+					<div class="medium-6 columns"><label>Email <input name="email" required="" type="email" /></label></div>
+					<div class="medium-6 columns"><label>Phone <input name="phone" required="" type="tel" /></label></div>
+				</div>
+				<div class="row">
+					<div class="medium-6 columns"><label>First Name <input name="firstname" required="" type="text" /></label></div>
+					<div class="medium-6 columns"><label>Last Name <input name="lastname" required="" type="text" /></label></div>
+				</div>
+
+				<hr />
+
+				<div class="row">
+					<div class="medium-12 columns"><label>Address 1 <input name="address1" required="" type="text" /></label></div>
+					<div class="medium-12 columns"><label>Address 2 <input name="address2" type="text" /></label></div>
+				</div>
+				<div class="row">
+					<div class="large-4 medium-12 columns"><label>City <input name="city" required="" type="text" /></label></div>
+					<div class="large-4 medium-6 small-6 columns"><label>State <input name="state" required="" type="text" /></label></div>
+					<div class="large-4 medium-6 small-6 columns"><label>Zip <input name="zip" required="" type="text" /></label></div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+					<h2>Membership Type</h2>
+					<p>These dues are valid for one year membership in DSA.</p>
+				</div>
+				<div class="medium-12 columns"><label>Amount
+					<select name="amount">
+						<option value="4500">$45 [Introductory]</option>
+						<option value="6000">$60 [Regular]</option>
+						<option value="2700">$27 [Low Income]</option>
+						<option value="2000">$20 [Student/YDS]</option>
+						<option value="11000">$110 [Family]</option>
+						<option value="8500">$85 [Sponsor]</option>
+						<option value="17500">$175 [Sustainer]</option>
+						<option value="75000">$750 [Lifetime]</option>
+					</select><!-- amount is in cents (5000 = $50) The backend will accept any value >= 5000 --></label></div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+					<h2>Payment Information</h2>
+					</div>
+				<!-- VERY important that these have the data-* fields and not a name attribute -->
+					<div class="medium-12 columns"><label>Credit Card Number <input required="" type="text" data-card-number="" /></label></div>
+					<div class="large-4 medium-12 columns"><label>Exp Month <input required="" size="2" type="text" data-card-expiry-month="" /></label></div>
+					<div class="large-4 medium-12 columns"><label>Exp Year <input required="" size="2" type="text" data-card-expiry-year="" /></label></div>
+					<div class="large-4 medium-12 columns"><label>Card Security Code <input required="" size="3" type="text" data-card-cvc="" /></label></div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns"><button class="button large expanded" type="button" data-stripe-submit="true">Join</button></div>
+				</div>
+			</form>
+		{% endif %}
+    </div>
+{% endblock %}

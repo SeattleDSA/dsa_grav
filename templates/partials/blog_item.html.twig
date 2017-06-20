@@ -8,11 +8,20 @@
     {% set header_image_file = page.header.header_image_file %}
     {% set header_image_caption = page.header.header_image_caption %}
 
-    	<meta property="og:url"				content="{{ page.url }}" />
+		<meta name="twitter:card" content="summary" />
+		{% if page.header.attribution.authortwitter is empty %}
+			<meta name="twitter:site" content="{{ config.themes.dsa_grav.DSAsocial.twitterhandle }}" />
+		{% else %}
+			<meta name="twitter:site" content="{{ config.themes.dsa_grav.DSAsocial.twitterhandle }}" />
+			<meta name="twitter:creator"		content="{{ page.header.attribution.authortwitter }}" />
+		{% endif %}
+		<meta property="og:url"				content="{{ page.url }}" />
 		<meta property="og:type"			content="article" />
 		<meta property="og:title"			content="{{ page.title }}" />
 		<meta property="og:description"		content="{{ page.summary }}" />
 		<meta property="og:image"			content="{{header_image_media.url}}" />
+
+
 
     <div class="list-blog-header row">
     	<div class="large-8 medium-8 blog-header-primary blog-padding columns">

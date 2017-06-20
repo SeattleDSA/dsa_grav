@@ -46,6 +46,16 @@ form:
       validate:
         type: string
 
+    DSAsocial.twitterhandle:
+      type: text
+      size: large
+      label: Twitter Account Handle
+      help: Your @username on twitter
+      placeholder: "@SeattleDSA"
+      default: ''
+      validate:
+        type: string
+
     DSAsocial.youtube:
       type: text
       size: large

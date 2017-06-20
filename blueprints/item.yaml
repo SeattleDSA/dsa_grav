@@ -24,6 +24,12 @@ form:
               classes: large
               placeholder: Your Author
 
+            header.attribution.authortwitter:
+              type: text
+              label: Author Twitter
+              classes: large
+              placeholder: @username on twitter (include @)
+
             header.attribution.artist:
               type: text
               label: Artist(s)

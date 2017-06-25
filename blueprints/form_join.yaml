@@ -24,13 +24,20 @@ form:
               type: text
               toggleable: true
               label: Public Key
-              placeholder: Find private key at
+              placeholder: Your public key can be found on Stripe
+              validate:
+                required: true
+                message: 'Enter your public key'
 
-            header.stripe.privkey:
+            header.stripe.url:
               type: text
               toggleable: true
-              label: Private Key
-              placeholder: Find private key at
+              label: Form Action URL
+              placeholder: Enter either form action url
+              validate:
+                  required: true
+                  message: 'Enter either test or finalized URL'
+                  
             header.stripe.displayform:
               type: toggle
               label: Display Form?

@@ -2,7 +2,7 @@
 @font-face {font-family: 'ManifoldDSA-ExtraBold';src: url('webfonts/ManifoldDSA-ExtraBold.eot');src: url('webfonts/ManifoldDSA-ExtraBold.eot?#iefix') format('embedded-opentype'),url('webfonts/ManifoldDSA-ExtraBold.woff2') format('woff2'),url('webfonts/ManifoldDSA-ExtraBold.woff') format('woff'),url('webfonts/ManifoldDSA-ExtraBold.ttf') format('truetype');}
 @font-face {font-family: 'ManifoldDSA-Light';src: url('webfonts/ManifoldDSA-Light.eot');src: url('webfonts/ManifoldDSA-Light.eot?#iefix') format('embedded-opentype'),url('webfonts/ManifoldDSA-Light.woff2') format('woff2'),url('webfonts/ManifoldDSA-Light.woff') format('woff'),url('webfonts/ManifoldDSA-Light.ttf') format('truetype');}
 @font-face {font-family: 'ManifoldDSA-Regular';src: url('webfonts/ManifoldDSA-Regular.eot');src: url('webfonts/ManifoldDSA-Regular.eot?#iefix') format('embedded-opentype'),url('webfonts/ManifoldDSA-Regular.woff2') format('woff2'),url('webfonts/ManifoldDSA-Regular.woff') format('woff'),url('webfonts/ManifoldDSA-Regular.ttf') format('truetype');}
-header, body, p {font-family: ManifoldDSA-Regular, Helvetica, Tahoma, Sans-Serif;}
+header, body, p, button, input, optgroup, select, textarea {font-family: ManifoldDSA-Regular, Helvetica, Tahoma, Sans-Serif;}
 h1, h2, h3, h4, h5 {font-family: ManifoldDSA-Light, Helvetica, Tahoma, Sans-Serif;}
 
 .blog-item-title, #facebook-events .event-title, strong, b, .body h1.archive-item-name {

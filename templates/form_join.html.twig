@@ -40,7 +40,7 @@
 			             });
 			         });
 			</script>
-			<form id="payment-form" action="https://wt-64417167ba0995031dff46dd4e6aafa1-0.run.webtask.io/national-dsa-signup-live" method="post">
+			<form id="payment-form" action="{{ header.stripe.url }}" method="post">
 				<div class="payment-errors"></div>
 				<div class="row">
 					<div class="large-12 columns"><h2>Contact Information</h2></div>
@@ -94,6 +94,9 @@
 					<div class="large-12 columns"><button class="button large expanded" type="button" data-stripe-submit="true">Join</button></div>
 				</div>
 			</form>
+		{% else %}
+			<h2>Error!</h2>
+			<p>It looks like the Public Key hasn't been entered in the Admin Panel for this page. Without it, Stripe cannot process payments.</p>
 		{% endif %}
     </div>
 {% endblock %}

@@ -6,7 +6,15 @@ The **dsa_grav** theme is designed for [Grav CMS](http://github.com/getgrav/grav
 
 Basic DSA chapter theme for powerful yet lighweight chapter and organizing committee websites.
 
+## Recommended Plugins
+
+* Admin Panel
+* Forms
+* Email
+* [DSA Fork of Grav Facebook Plugin](https://github.com/SeattleDSA/grav-plugin-facebook)
+
 ## Features
+
 * **Blog functionality** with ability to add artist/author attribution
 * **Hompage templates** minimalistic default and a complex example using parallax images
 * **Social sharing buttons** in blog feed and individual blog items
